@@ -103,11 +103,11 @@
   "padOptions": {
     "noColors": false,
     "showControls": true,
-    "showChat": true,
-    "showLineNumbers": true,
+    "showChat": false,
+    "showLineNumbers": false,
     "useMonospaceFont": false,
     "userName": false,
-    "userColor": false,
+    "userColor": true,
     "rtl": false,
     "alwaysShowChat": false,
     "chatAndUsers": false,
@@ -119,7 +119,7 @@
    */
   "padShortcutEnabled" : {
     "altF9"     : true, /* focus on the File Menu and/or editbar */
-    "altC"      : true, /* focus on the Chat window */
+    "altC"      : false, /* focus on the Chat window */
     "cmdShift2" : true, /* shows a gritter popup showing a line author */
     "delete"    : true,
     "return"    : true,
@@ -342,17 +342,10 @@
   "toolbar": {
     "left": [
       ["bold", "italic", "underline", "strikethrough"],
-      ["orderedlist", "unorderedlist", "indent", "outdent"],
-      ["undo", "redo"],
-      ["clearauthorship"]
+      ["orderedlist", "unorderedlist", "undo", "redo"]
     ],
     "right": [
-      ["importexport", "timeslider", "savedrevision"],
-      ["settings", "embed"],
-      ["showusers"]
-    ],
-    "timeslider": [
-      ["timeslider_export", "timeslider_returnToPad"]
+      ["clearauthorship"]
     ]
   },
   */

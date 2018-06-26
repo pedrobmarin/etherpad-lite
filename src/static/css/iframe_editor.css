@@ -3,6 +3,7 @@
 */
 
 @import url('./lists_and_indents.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 html { cursor: text; } /* in Safari, produces text cursor for whole doc (inc. below body) */
 span { cursor: auto; }
@@ -26,16 +27,17 @@ body {
 }
 
 #outerdocbody {
+  padding: 0;
   background-color: #fff;
 }
 body.grayedout { background-color: #eee !important }
 
 #innerdocbody {
-  font-size: 12px; /* overridden by body.style */
-  font-family:Arial, sans-serif; /* overridden by body.style */
+  font-size: 14px; /* overridden by body.style */
+  font-family: 'Source Sans Pro', sans-serif; /* overridden by body.style */
   line-height: 16px; /* overridden by body.style */
   background-color: white;
-  color: black;
+  color: #4e5a66;
 }
 
 body.doesWrap {
