@@ -60,7 +60,7 @@
    * https://www.npmjs.com/package/ueberdb2
    */
 
-  "dbType" : "dirty",
+  "dbType" : "redis",
 
   /*
    * Database specific settings (dependent on dbType).
@@ -68,8 +68,10 @@
    * Remember that since Etherpad 1.6.0 you can also store these informations in
    * credentials.json.
    */
+
   "dbSettings" : {
-                   "filename" : "var/dirty.db"
+                   "host"    : "redis",
+                   "port"    : 6379
                  },
 
   /*
@@ -93,7 +95,7 @@
   /*
    * The default text of a pad
    */
-  "defaultPadText" : "Welcome to Etherpad!\n\nThis pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents!\n\nGet involved with Etherpad at http:\/\/etherpad.org\n",
+  "defaultPadText" : "",
 
   /*
    * Default Pad behavior.
@@ -111,7 +113,7 @@
     "rtl": false,
     "alwaysShowChat": false,
     "chatAndUsers": false,
-    "lang": "en-gb"
+    "lang": "pt-br"
   },
 
   /*
@@ -145,7 +147,7 @@
   /*
    * Should we suppress errors from being visible in the default Pad Text?
    */
-  "suppressErrorsInPadText" : false,
+  "suppressErrorsInPadText" : true,
 
   /*
    * If this option is enabled, a user must have a session to access pads.
@@ -338,7 +340,6 @@
    * Uncomment to customize.
    */
 
-  /*
   "toolbar": {
     "left": [
       ["bold", "italic", "underline", "strikethrough"],
@@ -348,7 +349,6 @@
       ["clearauthorship"]
     ]
   },
-  */
 
   /*
    * The log level we are using.
