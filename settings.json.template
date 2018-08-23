@@ -345,9 +345,7 @@
       ["bold", "italic", "underline", "strikethrough"],
       ["orderedlist", "unorderedlist", "undo", "redo"]
     ],
-    "right": [
-      ["clearauthorship"]
-    ]
+    "right": []
   },
 
   /*

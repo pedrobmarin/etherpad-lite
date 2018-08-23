@@ -8,7 +8,7 @@ RUN apt-get update \
  && apt-get install -y jq \
  && bin/installDeps.sh \
  && npm -g install jsmin \
- && npm install ep_clear_authorship_no_prompt \
+ && npm install ep_author_neat \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
