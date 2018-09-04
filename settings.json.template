@@ -68,7 +68,6 @@
    * Remember that since Etherpad 1.6.0 you can also store these informations in
    * credentials.json.
    */
-
   "dbSettings" : {
                    "host"    : "redis",
                    "port"    : 6379
@@ -103,17 +102,17 @@
    * Change them if you want to override.
    */
   "padOptions": {
-    "noColors": false,
+    "noColors": true,
     "showControls": true,
     "showChat": false,
     "showLineNumbers": false,
     "useMonospaceFont": false,
     "userName": false,
-    "userColor": true,
+    "userColor": false,
     "rtl": false,
     "alwaysShowChat": false,
     "chatAndUsers": false,
-    "lang": "pt-br"
+    "lang": "en-gb"
   },
 
   /*
@@ -192,7 +191,7 @@
    * it to null disables Abiword and will only allow plain text and HTML
    * import/exports.
    */
-  "abiword" : null,
+  "abiword" : "/usr/bin/abiword",
 
   /*
    * This is the absolute path to the soffice executable.
@@ -208,13 +207,13 @@
    * Tidy is used to improve the quality of exported pads.
    * Setting it to null disables Tidy.
    */
-  "tidyHtml" : null,
+  "tidyHtml" : "/usr/bin/tidy",
 
   /*
    * Allow import of file types other than the supported ones:
    * txt, doc, docx, rtf, odt, html & htm
    */
-  "allowUnknownFileEnds" : true,
+  "allowUnknownFileEnds" : false,
 
   /*
    * This setting is used if you require authentication of all users.
@@ -345,7 +344,9 @@
       ["bold", "italic", "underline", "strikethrough"],
       ["orderedlist", "unorderedlist", "undo", "redo"]
     ],
-    "right": []
+    "right_DISABLED": [
+      ["importexport"]
+    ]
   },
 
   /*

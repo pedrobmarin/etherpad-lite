@@ -1,14 +1,17 @@
 FROM node:9
 
+# ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update \
+ && apt-get install -y jq abiword tidy \
+ && npm -g install jsmin
+
 ADD . app
 
 WORKDIR app
 
-RUN apt-get update \
- && apt-get install -y jq \
- && bin/installDeps.sh \
- && npm -g install jsmin \
- && npm install ep_author_neat \
+RUN bin/installDeps.sh \
+ && npm install ep_better_pdf_export html-pdf \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
