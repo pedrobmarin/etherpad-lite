@@ -344,9 +344,7 @@
       ["bold", "italic", "underline", "strikethrough"],
       ["orderedlist", "unorderedlist", "undo", "redo"]
     ],
-    "right_DISABLED": [
-      ["importexport"]
-    ]
+    "right": []
   },
 
   /*
