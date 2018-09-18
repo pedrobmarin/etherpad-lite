@@ -334,6 +334,18 @@
   */
 
   /*
+   * Delete pads plugin configuration.
+   * npm i ep_delete_after_delay_lite
+   */
+
+  "ep_delete_after_delay_lite": {
+    "delay": 86400, // one day, in seconds
+    "loop": true,
+    "loopDelay": 3600, // one hour, in seconds
+    "deleteAtStart": true
+  },
+
+  /*
    * Toolbar buttons configuration.
    *
    * Uncomment to customize.
