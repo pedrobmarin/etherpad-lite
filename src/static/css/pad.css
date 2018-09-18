@@ -687,8 +687,9 @@ table#otheruserstable {
 }
 .exportlink{
   font-family: "fontawesome-etherpad";
-  display:block;
-  margin:5px;
+  display: table;
+  margin-left: 10px;
+  margin-bottom: 10px;
   color:#666;
 }
 #exporthtmla:before {
@@ -728,7 +729,6 @@ table#otheruserstable {
 
 #importsubmitinput {
   margin-top: 12px;
-  padding:2px 4px 2px 4px;
 }
 #chatthrob {
   display: none;
@@ -889,7 +889,9 @@ input[type=checkbox] {
 }
 .popup h2 {
   color: #777;
-  font-size: 15px
+  font-size: 15px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 .popup p {
   margin: 5px 0
@@ -905,7 +907,7 @@ input[type=checkbox] {
 }
 .column {
   float: left;
-  width:50%;
+  width:100%;
 }
 #settings,
 #import_export,
@@ -918,6 +920,8 @@ input[type=checkbox] {
   left: 0;
   display: none;
   z-index: 500;
+  padding-top: 16px;
+  padding-left: 16px;
 }
 .connected,
 .reconnecting,
@@ -932,7 +936,6 @@ input[type=checkbox] {
 .disconnected {
   padding-top: 16px;
   padding-left: 16px;
-  padding-right: 16px;
 }
 .stickyChat {
   background-color: #f1f1f1 !important;
