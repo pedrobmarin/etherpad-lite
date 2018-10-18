@@ -11,7 +11,7 @@ ADD . app
 WORKDIR app
 
 RUN bin/installDeps.sh \
- && npm install ep_better_pdf_export html-pdf \
+ && npm install ep_better_pdf_export html-pdf ep_delete_after_delay_lite \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
