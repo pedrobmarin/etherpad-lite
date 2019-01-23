@@ -1,9 +1,9 @@
-FROM node:9
+FROM node:8-slim
 
-# ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
- && apt-get install -y jq abiword tidy \
+ && apt-get install -y jq abiword tidy bzip2 \
  && npm -g install jsmin
 
 ADD . app
