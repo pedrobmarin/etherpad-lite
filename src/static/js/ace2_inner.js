@@ -3870,14 +3870,20 @@ function Ace2Inner(){
           }, 0);
           specialHandled = true;
         }
-        if ((!specialHandled) && isTypeForSpecialKey && keyCode == 27 && padShortcutEnabled.esc)
+        // New toolbar shortcut (pedrobmarin 2019)
+        if ((!specialHandled) && !altKey && isTypeForSpecialKey && keyCode == 27 && padShortcutEnabled.esc)
         {
-          // prevent esc key;
-          // in mozilla versions 14-19 avoid reconnecting pad.
-
+          var firstEditbarElement = parent.parent.$('#editbar').children("ul").first().children().first().children().first().children().first();
+          $(this).blur();
+          firstEditbarElement.focus();
+          evt.preventDefault();
+        }
+        // Changed this to focus out the iframe (pedrobmarin 2019)
+        if ((!specialHandled) && altKey && isTypeForSpecialKey && keyCode == 27 && padShortcutEnabled.esc)
+        {
+          parent.parent.parent.focus();
           fastIncorp(4);
           evt.preventDefault();
-          specialHandled = true;
         }
         if ((!specialHandled) && isTypeForCmdKey && String.fromCharCode(which).toLowerCase() == "s" && (evt.metaKey || evt.ctrlKey) && !evt.altKey && padShortcutEnabled.cmdS) /* Do a saved revision on ctrl S */
         {
