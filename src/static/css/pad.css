@@ -6,6 +6,7 @@ html,
 body,
 p {
   margin: 0;
+  padding: 0px;
 }
 
 .clear {
@@ -901,12 +902,10 @@ input[type=checkbox] {
 .popup {
   font-size: 14px;
   width: 100%;
-  height: -webkit-fill-available;
+  height: 100%;
   border: none;
   background: #fff;
   color: #4e5a66;
-  overflow-y: auto;
-  padding-bottom: 54px;
 }
 .popup input[type=text] {
   width: 100%;

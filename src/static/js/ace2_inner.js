@@ -3878,13 +3878,6 @@ function Ace2Inner(){
           firstEditbarElement.focus();
           evt.preventDefault();
         }
-        // Changed this to focus out the iframe (pedrobmarin 2019)
-        if ((!specialHandled) && altKey && isTypeForSpecialKey && keyCode == 27 && padShortcutEnabled.esc)
-        {
-          parent.parent.parent.focus();
-          fastIncorp(4);
-          evt.preventDefault();
-        }
         if ((!specialHandled) && isTypeForCmdKey && String.fromCharCode(which).toLowerCase() == "s" && (evt.metaKey || evt.ctrlKey) && !evt.altKey && padShortcutEnabled.cmdS) /* Do a saved revision on ctrl S */
         {
           evt.preventDefault();
