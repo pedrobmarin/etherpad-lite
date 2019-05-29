@@ -92,6 +92,17 @@
   */
 
   /*
+  "dbType" : "redis",
+  "dbSettings" : {
+                   "host"    : "localhost",
+                   "port"    : 6379,
+                   "client_options": {
+                     "password": "PASSWORD"
+                   }
+                 },
+  */
+
+  /*
    * The default text of a pad
    */
   "defaultPadText" : "",
@@ -344,6 +355,24 @@
     "loopDelay": 3600, // one hour, in seconds
     "deleteAtStart": true
   },
+
+  /*
+   * Redis publisher plugin configuration.
+   * npm i git+https://git@github.com/pedrobmarin/ep_redis_publisher.git
+   */
+
+  "ep_redis_publisher": {
+    "host"    : "redis",
+    "port"    : 6379
+  },
+
+  /*
+  "ep_redis_publisher": {
+    "host"    : "localhost",
+    "port"    : 6379,
+    "password": "PASSWORD"
+  },
+  */
 
   /*
    * Toolbar buttons configuration.
