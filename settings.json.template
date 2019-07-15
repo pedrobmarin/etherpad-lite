@@ -78,9 +78,10 @@
    * https://www.npmjs.com/package/ueberdb2
    */
 
-  "dbType" : "dirty",
+  "dbType" : "redis",
   "dbSettings" : {
-                   "filename" : "var/dirty.db"
+                   "host"    : "redis",
+                   "port"    : 6379
                  },
 
   /*
@@ -102,9 +103,20 @@
   */
 
   /*
+  "dbType" : "redis",
+  "dbSettings" : {
+                   "host"    : "localhost",
+                   "port"    : 6379,
+                   "client_options": {
+                     "password": "PASSWORD"
+                   }
+                 },
+  */
+
+  /*
    * The default text of a pad
    */
-  "defaultPadText" : "Welcome to Etherpad!\n\nThis pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents!\n\nGet involved with Etherpad at http:\/\/etherpad.org\n",
+  "defaultPadText" : "",
 
   /*
    * Default Pad behavior.
@@ -112,10 +124,10 @@
    * Change them if you want to override.
    */
   "padOptions": {
-    "noColors": false,
+    "noColors": true,
     "showControls": true,
-    "showChat": true,
-    "showLineNumbers": true,
+    "showChat": false,
+    "showLineNumbers": false,
     "useMonospaceFont": false,
     "userName": false,
     "userColor": false,
@@ -130,7 +142,7 @@
    */
   "padShortcutEnabled" : {
     "altF9"     : true, /* focus on the File Menu and/or editbar */
-    "altC"      : true, /* focus on the Chat window */
+    "altC"      : false, /* focus on the Chat window */
     "cmdShift2" : true, /* shows a gritter popup showing a line author */
     "delete"    : true,
     "return"    : true,
@@ -156,7 +168,7 @@
   /*
    * Should we suppress errors from being visible in the default Pad Text?
    */
-  "suppressErrorsInPadText" : false,
+  "suppressErrorsInPadText" : true,
 
   /*
    * If this option is enabled, a user must have a session to access pads.
@@ -201,7 +213,7 @@
    * it to null disables Abiword and will only allow plain text and HTML
    * import/exports.
    */
-  "abiword" : null,
+  "abiword" : "/usr/bin/abiword",
 
   /*
    * This is the absolute path to the soffice executable.
@@ -217,13 +229,13 @@
    * Tidy is used to improve the quality of exported pads.
    * Setting it to null disables Tidy.
    */
-  "tidyHtml" : null,
+  "tidyHtml" : "/usr/bin/tidy",
 
   /*
    * Allow import of file types other than the supported ones:
    * txt, doc, docx, rtf, odt, html & htm
    */
-  "allowUnknownFileEnds" : true,
+  "allowUnknownFileEnds" : false,
 
   /*
    * This setting is used if you require authentication of all users.
@@ -344,29 +356,48 @@
   */
 
   /*
+   * Delete pads plugin configuration.
+   * npm i ep_delete_after_delay_lite
+   */
+
+  "ep_delete_after_delay_lite": {
+    "delay": 86400, // one day, in seconds
+    "loop": true,
+    "loopDelay": 3600, // one hour, in seconds
+    "deleteAtStart": true
+  },
+
+  /*
+   * Redis publisher plugin configuration.
+   * npm i git+https://git@github.com/pedrobmarin/ep_redis_publisher.git
+   */
+
+  "ep_redis_publisher": {
+    "host"    : "redis",
+    "port"    : 6379
+  },
+
+  /*
+  "ep_redis_publisher": {
+    "host"    : "localhost",
+    "port"    : 6379,
+    "password": "PASSWORD"
+  },
+  */
+
+  /*
    * Toolbar buttons configuration.
    *
    * Uncomment to customize.
    */
 
-  /*
   "toolbar": {
     "left": [
       ["bold", "italic", "underline", "strikethrough"],
-      ["orderedlist", "unorderedlist", "indent", "outdent"],
-      ["undo", "redo"],
-      ["clearauthorship"]
+      ["orderedlist", "unorderedlist", "undo", "redo"]
     ],
-    "right": [
-      ["importexport", "timeslider", "savedrevision"],
-      ["settings", "embed"],
-      ["showusers"]
-    ],
-    "timeslider": [
-      ["timeslider_export", "timeslider_returnToPad"]
-    ]
+    "right": [["importexport"]]
   },
-  */
 
   /*
    * The log level we are using.
