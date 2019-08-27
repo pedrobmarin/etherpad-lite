@@ -1,3 +1,30 @@
+# 1.7.5
+* FEATURE: introduced support for multiple skins. See http://etherpad.org/doc/v1.7.5/#index_skins
+* FEATURE: added a new, optional skin. It can be activated choosing `skinName: "colibris"` in `settings.json`
+* FEATURE: allow file import using LibreOffice
+* SECURITY: updated many dependencies. No known high or moderate risk dependencies remain.
+* SECURITY: generate better random pad names
+* FIX: don't nuke all installed plugins if `npm install` fails
+* FIX: improved LibreOffice export
+* FIX: allow debug mode on node versions >= 6.3
+* MINOR: started making Etherpad less dependent on current working directory when running
+* MINOR: started simplifying the code structure, flattening complex conditions
+* MINOR: simplified a bit the startup scripts
+
+*UPGRADE NOTES*: if you have custom files in `src/static/custom`, save them
+somewhere else, revert the directory contents, update to Etherpad 1.7.5, and
+finally put them back in their new location, uder `src/static/skins/no-skin`.
+
+# 1.7.0
+* FIX: `getLineHTMLForExport()` no longer produces multiple copies of a line. **WARNING**: this could potentially break some plugins
+* FIX: authorship of bullet points no longer changes when a second author edits them
+* FIX: improved Firefox compatibility (non printable keys)
+* FIX: `getPadPlainText()` was not working
+* REQUIREMENTS: minimum required Node version is 6.9.0 LTS. The next release will require at least Node 8.9.0 LTS
+* SECURITY: updated MySQL, Elasticsearch and PostgreSQL drivers
+* SECURITY: started updating deprecated code and packages
+* DOCS: documented --credentials, --apikey, --sessionkey. Better detailed contributors guidelines. Added a section on securing the installation
+
 # 1.6.6
  * FIX: line numbers are aligned with text again (broken in 1.6.4)
  * FIX: text entered between connection loss and reconnection was not saved
