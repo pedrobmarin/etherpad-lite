@@ -129,9 +129,10 @@
    * https://www.npmjs.com/package/ueberdb2
    */
 
-  "dbType": "dirty",
+  "dbType": "redis",
   "dbSettings": {
-    "filename": "var/dirty.db"
+    "host": "redis",
+    "port": 6379
   },
 
   /*
@@ -153,9 +154,24 @@
   */
 
   /*
+   * An Example of Redis Configuration (commented out).
+   */
+
+  /*
+  "dbType": "redis",
+  "dbSettings": {
+    "host": "localhost",
+    "port": 6379,
+    "client_options": {
+      "password": "PASSWORD"
+    }
+  },
+  */
+
+  /*
    * The default text of a pad
    */
-  "defaultPadText" : "Welcome to Etherpad!\n\nThis pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents!\n\nGet involved with Etherpad at http:\/\/etherpad.org\n",
+  "defaultPadText" : "",
 
   /*
    * Default Pad behavior.
@@ -163,10 +179,10 @@
    * Change them if you want to override.
    */
   "padOptions": {
-    "noColors":         false,
+    "noColors":         true,
     "showControls":     true,
-    "showChat":         true,
-    "showLineNumbers":  true,
+    "showChat":         false,
+    "showLineNumbers":  false,
     "useMonospaceFont": false,
     "userName":         false,
     "userColor":        false,
@@ -181,7 +197,7 @@
    */
   "padShortcutEnabled" : {
     "altF9":     true, /* focus on the File Menu and/or editbar */
-    "altC":      true, /* focus on the Chat window */
+    "altC":      false, /* focus on the Chat window */
     "cmdShift2": true, /* shows a gritter popup showing a line author */
     "delete":    true,
     "return":    true,
@@ -207,7 +223,7 @@
   /*
    * Should we suppress errors from being visible in the default Pad Text?
    */
-  "suppressErrorsInPadText": false,
+  "suppressErrorsInPadText": true,
 
   /*
    * If this option is enabled, a user must have a session to access pads.
@@ -260,7 +276,7 @@
    * LibreOffice can be used in lieu of Abiword to export pads.
    * Setting it to null disables LibreOffice exporting.
    */
-  "soffice": null,
+  "soffice": "/usr/bin/soffice",
 
   /*
    * Path to the Tidy executable.
@@ -274,7 +290,7 @@
    * Allow import of file types other than the supported ones:
    * txt, doc, docx, rtf, odt, html & htm
    */
-  "allowUnknownFileEnds": true,
+  "allowUnknownFileEnds": false,
 
   /*
    * This setting is used if you require authentication of all users.
@@ -297,7 +313,7 @@
    * The other effect will be that the logs will contain the real client's IP,
    * instead of the reverse proxy's IP.
    */
-  "trustProxy": false,
+  "trustProxy": true,
 
   /*
    * Privacy: disable IP logging
@@ -403,29 +419,40 @@
   */
 
   /*
+   * Delete pads plugin configuration.
+   */
+
+  "ep_delete_after_delay_lite": {
+    "delay": 86400, // one day, in seconds
+    "loop": true,
+    "loopDelay": 3600, // one hour, in seconds
+    "deleteAtStart": true
+  },
+
+  /*
+   * Redis publisher plugin configuration.
+   */
+
+  "ep_redis_publisher": {
+    "host": "redis",
+    "port": 6379
+  },
+
+  /*
    * Toolbar buttons configuration.
    *
    * Uncomment to customize.
    */
 
-  /*
   "toolbar": {
     "left": [
       ["bold", "italic", "underline", "strikethrough"],
-      ["orderedlist", "unorderedlist", "indent", "outdent"],
-      ["undo", "redo"],
-      ["clearauthorship"]
+      ["orderedlist", "unorderedlist", "undo", "redo"]
     ],
     "right": [
-      ["importexport", "timeslider", "savedrevision"],
-      ["settings", "embed"],
-      ["showusers"]
-    ],
-    "timeslider": [
-      ["timeslider_export", "timeslider_returnToPad"]
+      ["importexport"]
     ]
   },
-  */
 
   /*
    * Expose Etherpad version in the web interface and in the Server http header.
