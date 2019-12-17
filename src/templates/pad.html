@@ -119,7 +119,11 @@
                 <p data-l10n-id="pad.noCookie">Cookie could not be found. Please allow cookies in your browser!</p>
               </div>
               <% e.begin_block("loading"); %>
-              <p data-l10n-id="pad.loading" id="loading">Loading...</p>
+              <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
               <% e.end_block(); %>
               <noscript><strong>Sorry, you have to enable Javascript in order to use this.</strong></noscript>
             </div>
@@ -217,7 +221,7 @@
             <div class="column acl-write">
                 <% e.begin_block("importColumn"); %>
                 <h2 data-l10n-id="pad.importExport.import"></h2>
-                <div class="importmessage" id="importmessageabiword" data-l10n-id="pad.importExport.abiword.innerHTML"></div><br>
+                <div class="importmessage" id="importmessageabiword" data-l10n-id="pad.importExport.abiword.innerHTML"></div>
                 <form id="importform" method="post" action="" target="importiframe" enctype="multipart/form-data">
                     <div class="importformdiv" id="importformfilediv">
                         <input type="file" name="file" size="10" id="importfileinput">
@@ -233,10 +237,8 @@
                     </div>
                 </form>
                 <% e.end_block(); %>
-            </div>
-            <div class="column" id="exportColumn">
-                <h2 data-l10n-id="pad.importExport.export"></h2>
                 <% e.begin_block("exportColumn"); %>
+                <h2 data-l10n-id="pad.importExport.export"></h2>
                 <a id="exportetherpada" target="_blank" class="exportlink"><div class="exporttype" id="exportetherpad" data-l10n-id="pad.importExport.exportetherpad"></div></a>
                 <a id="exporthtmla" target="_blank" class="exportlink"><div class="exporttype" id="exporthtml" data-l10n-id="pad.importExport.exporthtml"></div></a>
                 <a id="exportplaina" target="_blank" class="exportlink"><div class="exporttype" id="exportplain" data-l10n-id="pad.importExport.exportplain"></div></a>
