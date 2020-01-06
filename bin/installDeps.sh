@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # minimum required node version
-REQUIRED_NODE_MAJOR=6
+REQUIRED_NODE_MAJOR=8
 REQUIRED_NODE_MINOR=9
 
 # minimum required npm version
-REQUIRED_NPM_MAJOR=3
-REQUIRED_NPM_MINOR=10
+REQUIRED_NPM_MAJOR=5
+REQUIRED_NPM_MINOR=5
 
 require_minimal_version() {
   PROGRAM_LABEL="$1"
@@ -83,7 +83,7 @@ require_minimal_version "nodejs" "$NODE_VERSION_STRING" "$REQUIRED_NODE_MAJOR" "
 #Get the name of the settings file
 settings="settings.json"
 a='';
-for arg in $*; do
+for arg in "$@"; do
   if [ "$a" = "--settings" ] || [ "$a" = "-s" ]; then settings=$arg; fi
   a=$arg
 done
@@ -100,7 +100,7 @@ echo "Ensure that all dependencies are up to date...  If this is the first time 
   cd node_modules
   [ -e ep_etherpad-lite ] || ln -s ../src ep_etherpad-lite
   cd ep_etherpad-lite
-  npm install --no-save --loglevel warn
+  npm install --save --loglevel warn
 ) || {
   rm -rf src/node_modules
   exit 1

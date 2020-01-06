@@ -6,7 +6,7 @@ html,
 body,
 p {
   margin: 0;
-  padding: 0;
+  padding: 0px;
 }
 
 .clear {
@@ -162,7 +162,7 @@ a img {
   outline: none;
 }
 .toolbar ul.menu_left {
-  left: 0px;
+  left:0px;
   right: 50px;
   padding-left: 16px;
 }
@@ -936,9 +936,9 @@ input[type=checkbox] {
 }
 .popup h2 {
   color: #777;
-  font-size: 15px;
   padding-top: 16px;
   padding-bottom: 16px;
+  font-size: 15px
 }
 .popup p {
   margin: 5px 0
@@ -951,6 +951,13 @@ input[type=checkbox] {
   border: 1px solid #ccc;
   outline: none;
   width: 120px;
+}
+.row {
+  float: left;
+  width: 100%;
+}
+.row + .row {
+  margin-top: 15px;
 }
 .column {
   float: left;
