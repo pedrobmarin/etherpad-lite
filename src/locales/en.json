@@ -13,7 +13,7 @@
   "pad.toolbar.undo.title": "Undo (Ctrl+Z)",
   "pad.toolbar.redo.title": "Redo (Ctrl+Y)",
   "pad.toolbar.clearAuthorship.title": "Clear Authorship Colors (Ctrl+Shift+C)",
-  "pad.toolbar.import_export.title": "Import/Export from/to different file formats",
+  "pad.toolbar.import_export.title": "Export to different file formats",
   "pad.toolbar.timeslider.title": "Timeslider",
   "pad.toolbar.savedRevision.title": "Save Revision",
   "pad.toolbar.settings.title": "Settings",
@@ -61,7 +61,7 @@
   "pad.settings.globalView": "Global View",
   "pad.settings.language": "Language:",
 
-  "pad.importExport.import_export": "Import/Export",
+  "pad.importExport.import_export": "Export",
   "pad.importExport.import": "Upload any text file or document",
   "pad.importExport.importSuccessful": "Successful!",
   "pad.importExport.export": "Export current pad as:",
