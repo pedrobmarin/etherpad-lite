@@ -492,6 +492,9 @@ function getCollabClient(ace2editor, serverVars, initialUserInfo, options, _pad)
     {
       callbacks.onServerMessage(msg.payload);
     }
+    else if(msg.type == "HISTORICAL_AUTHOR_DATA") {
+      clientVars.collab_client_vars.historicalAuthorData = msg.collab_client_vars.historicalAuthorData;
+    }
 
     //HACKISH: User messages do not have "payload" but "userInfo", so that all "handleClientMessage_USER_" hooks would work, populate payload
     //FIXME: USER_* messages to have "payload" property instead of "userInfo", seems like a quite a big work

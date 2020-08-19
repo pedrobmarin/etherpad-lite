@@ -149,6 +149,18 @@ exports.handleDisconnect = async function(client)
     // Go through all user that are still on the pad, and send them the USER_LEAVE message
     client.broadcast.to(session.padId).json.send(messageToTheOtherUsers);
 
+    // If session has this user's writings, update historicalAuthorData of the users that are still connected
+    let historicalAuthorData = await _getHistoricalAuthorData(session.padId);
+    if (historicalAuthorData && _.contains(_.keys(historicalAuthorData), session.author)) {
+      let clientVars = {
+        "type": "HISTORICAL_AUTHOR_DATA",
+        "collab_client_vars": {
+          "historicalAuthorData": historicalAuthorData
+        }
+      }
+      client.broadcast.to(session.padId).json.send({type: "COLLABROOM", data: clientVars});
+    }
+
     // Allow plugins to hook into users leaving the pad
     hooks.callAll("userLeave", session);
   }
@@ -927,17 +939,7 @@ async function handleClientReady(client, message)
   // get timestamp of latest revision needed for timeslider
   let currentTime = await pad.getRevisionDate(pad.getHeadRevisionNumber());
 
-  // get all author data out of the database (in parallel)
-  let historicalAuthorData = {};
-  await Promise.all(authors.map(authorId => {
-    return authorManager.getAuthor(authorId).then(author => {
-      if (!author) {
-        messageLogger.error("There is no author for authorId:", authorId);
-      } else {
-        historicalAuthorData[authorId] = { name: author.name, colorId: author.colorId }; // Filter author attribs (e.g. don't send author's pads to all clients)
-      }
-    });
-  }));
+  let historicalAuthorData = await _getHistoricalAuthorData(pad.id);
 
   // glue the clientVars together, send them and tell the other clients that a new one is there
 
@@ -1422,6 +1424,24 @@ async function composePadChangesets (padId, startNum, endNum)
     console.warn("failed to compose cs in pad:", padId, " startrev:", startNum," current rev:", r);
     throw e;
   }
+}
+
+// Get all author data out of the database (in parallel)
+async function _getHistoricalAuthorData(padId) {
+  let pad = await padManager.getPad(padId);
+  let authors = pad.getAllAuthors();
+  let historicalAuthorData = {};
+
+  await Promise.all(authors.map(authorId => {
+    return authorManager.getAuthor(authorId).then(author => {
+      if (!author) {
+        messageLogger.error("There is no author for authorId:", authorId);
+      } else {
+        historicalAuthorData[authorId] = { name: author.name, color: author.colorId }; // Filter author attribs (e.g. don't send author's pads to all clients)
+      }
+    });
+  }));
+  return historicalAuthorData;
 }
 
 function _getRoomClients(padID) {
