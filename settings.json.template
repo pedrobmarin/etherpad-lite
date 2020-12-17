@@ -85,7 +85,7 @@
   /*
    * IP and port which etherpad should bind at
    */
-  "ip": "0.0.0.0",
+  "ip": "127.0.0.1",
   "port": 9001,
 
   /*
@@ -314,7 +314,7 @@
   /*
    * When embedding the pads in an iframe set this to true.
    */
-  "forceSameSiteNone": false,
+  "forceSameSiteNone": true,
 
   /*
    * Privacy: disable IP logging
